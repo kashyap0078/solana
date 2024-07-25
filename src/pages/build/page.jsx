@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../../components/header";
 import stockExchange from "../../assets/icons/stockExchangeIcon.svg";
 import Gif from "../../assets/images/build.gif";
 import mainImg from "../../assets/images/dcbackground.png";
@@ -14,10 +13,8 @@ import LeftUpArrow from "../../assets/icons/leftupArrow.svg";
 import ChangeLog from "../../assets/images/changelog.png";
 import Youtube from "../../assets/icons/youtube.svg";
 import Podcast from "../../assets/icons/podcast.svg";
-import Footer from "../../components/footer";
-import { useDarkMode } from "../../context/Darkmode";
+
 const Build = () => {
-  const { isNightMode,  handleToggle } = useDarkMode();
   const courses = [
     {
       id: 1,
@@ -102,7 +99,7 @@ const Build = () => {
 
   return (
     <>
-      <Header handleToggle={handleToggle} isNightMode={isNightMode}  />
+      
       <section className="max-w-[1252px] mx-auto text-[black] dark:text-[white] flex justify-center">
         <div className="w-full flex flex-col md:flex-row md:justify-between items-center lg:ml-20">
           <div className="mx-4 md:w-1/2 flex flex-col ">
@@ -299,7 +296,6 @@ const Build = () => {
           </div>
         </div>
       </section>
-      <Footer/>
     </>
   );
 };

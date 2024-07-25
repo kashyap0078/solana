@@ -15,9 +15,9 @@ const SideBar = ({handleToggle,isNightMode}) => {
   };
   return (
     <>
-      <div className="absolute    z-10  ">
+      <div className="relative z-10  ">
         <svg
-         className="h-6 w-6 sm:h-10 sm:w-10"
+         className="h-10 w-10 "
           viewBox="0 0 24 24"
           fill="none"
           onClick={toggleSidebar}
@@ -86,26 +86,35 @@ const SideBar = ({handleToggle,isNightMode}) => {
 
         <div className="py-4 ">
         <div className="flex flex-col text-[white] text-[17px] gap-10 items-start mx-10 my-10">
-          <div className="flex">
-            <a href="#">Learn</a>
-            <img src={DorpDown} />
-          </div>
-          <div className="flex">
-            <a href="/build">Build</a>
-            <img src={DorpDown} />
-          </div>
-          <div className="flex">
-            <a href="#">Network</a>
-            <img src={DorpDown} />
-          </div>
-          <div className="flex">
-            <a href="#">Community</a>
-            <img src={DorpDown} />
-          </div>
-          <div>
-            <img src={isNightMode? Nightmode:Daymode} alt="" className="h-10 rounded-full"  onClick={handleToggle}/>
-          </div>
-
+        <div className="flex">
+              <a href="/">Home</a>
+            </div>
+            <div className="flex truncate">
+              <a href="/build">About us</a>
+            </div>
+            <div className="flex">
+              <a href="/services">Services</a>
+            </div>
+            <div className="flex">
+              <a href="/portfolio">Portfolio</a>
+            </div>
+            <div className="flex">
+              <a href="/blog">Blog</a>
+            </div>
+            <div className="flex">
+              <a href="/career">Career</a>
+            </div>
+            <div className="flex truncate">
+              <a href="/contact-us">Contact us</a>
+            </div>
+            <div>
+              <img
+                src={isNightMode ? Nightmode : Daymode}
+                alt=""
+                className="h-10 rounded-full"
+                onClick={handleToggle}
+              />
+            </div>
         </div>
         </div>
       </div>

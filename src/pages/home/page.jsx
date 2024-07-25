@@ -1,6 +1,4 @@
-import Header from "../../components/header";
-import RightImage from "../../assets/images/right.png";
-import LeftImage from "../../assets/images/left.png";
+import Gif from "../../assets/images/build.gif";
 import Brave from "../../assets/icons/brave.svg";
 import Circle from "../../assets/icons/circile.svg";
 import Discord from "../../assets/icons/discord.svg";
@@ -25,42 +23,43 @@ import Collage5 from "../../assets/images/collage5.png";
 import Collage6 from "../../assets/images/collage6.png";
 import Collage7 from "../../assets/images/collage7.png";
 import Collage8 from "../../assets/images/collage8.png";
-import HomePage from "../../assets/images/home.png";
-import Footer from "../../components/footer";
+import HomePage from "../../assets/images/homeBg.png";
 import { useDarkMode } from "../../context/Darkmode";
-import { useEffect,useState } from "react";
 const Home = () => {
-  const { isNightMode,  handleToggle } = useDarkMode();
+  const { isNightMode } = useDarkMode();
 
   return (
     <>
       <section>
-      <Header handleToggle={handleToggle} isNightMode={isNightMode} />
         <div
           className={`relative h-full flex justify-center text-center `}
         >
           <div
           className={`absolute top-0 h-full w-full bg-no-repeat bg-cover`}
-          style={{ backgroundImage: isNightMode ? `url(${HomePage})` : 'none' }}
-          
-          ></div>
+          style={{ backgroundImage: isNightMode ? `url(${HomePage})` : 'none' }} > </div>
+
+          <div className="flex flex-col items-center lg:flex-row lg:justify-center">
           <div className="relative z-10 mx-10 max-w-full lg:max-w-[50%] flex flex-col  mb-28 mt-10 lg:my-28 ">
             <h1 className="text-[38px] sm:text-[45px] md:text-[60px] lg:text-[70px] my-0 ">
-              Powerful for developers. Fast for everyone.
+            Innovate. Create. Transform
             </h1>
             <p className="mt-4 sm:mx-24 text-[16px] sm:text-[18px]">
-              Bring blockchain to the people. Solana supports experiences for
-              power users, new consumers, and everyone in between.
+            Your Partner in Web, App, Software, IoT Development & Digital Marketing
             </p>
             <div className="mt-6 gap-5 flex flex-col  sm:flex-row justify-center">
               <button className="px-6 py-2 text-[white] dark:text-[black] bg-gradient-to-r from-[#8C01FA] to-black rounded-full ">
-                START BUILDING
+                 LEARN MORE
               </button>
               <button className="px-6 py-2 border dark:border-white rounded-full hover:bg-white hover:text-black">
-                READ DOCS
+                GET STARTED
               </button>
             </div>
           </div>
+          <div>
+            <img src={Gif} alt="" className="relative" />
+          </div>
+          </div>
+          
         </div>
       </section>
       <section>
@@ -183,7 +182,7 @@ const Home = () => {
         <div className="flex justify-center w-full">
           <div className="flex flex-col items-center lg:flex-row  lg:justify-between w-full max-w-[1100px]">
             <h1 className="text-[30px]">Build for growth.</h1>
-            <div className="flex gap-5 flex-wrap text-[white]">
+            <div className="flex gap-5 flex-wrap justify-center mt-4 text-[white]">
               <p className="bg-[#111111] px-5 py-2 rounded-[16px] border-2 border-[#A962FF]">
                 NFTs
               </p>
@@ -258,8 +257,6 @@ const Home = () => {
           </button>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 };
