@@ -24,6 +24,7 @@ import Collage6 from "../../assets/images/collage6.png";
 import Collage7 from "../../assets/images/collage7.png";
 import Collage8 from "../../assets/images/collage8.png";
 import HomePage from "../../assets/images/homeBg.png";
+import HomeDay from "../../assets/images/homeBg1.jpg"
 import { useDarkMode } from "../../context/Darkmode";
 const Home = () => {
   const { isNightMode } = useDarkMode();
@@ -36,7 +37,7 @@ const Home = () => {
         >
           <div
           className={`absolute top-0 h-full w-full bg-no-repeat bg-cover`}
-          style={{ backgroundImage: isNightMode ? `url(${HomePage})` : 'none' }} > </div>
+          style={{ backgroundImage: isNightMode ? `url(${HomePage})` : `url(${HomeDay})` }} > </div>
 
           <div className="flex flex-col items-center lg:flex-row lg:justify-center">
           <div className="relative z-10 mx-10 max-w-full lg:max-w-[50%] flex flex-col  mb-28 mt-10 lg:my-28 ">
@@ -62,7 +63,7 @@ const Home = () => {
           
         </div>
       </section>
-      <section>
+      <section >
         <div className="flex flex-col items-center">
           <div>
             <p className="text-[#618ADC] text-[15px] mx-5 ">
@@ -84,7 +85,7 @@ const Home = () => {
       <section className="">
         <div
           className="min-h-screen w-full bg-cover bg-center"
-          style={{ backgroundImage:isNightMode? `url(${BgWave})`:'none' }}
+          style={{ backgroundImage:isNightMode? `url(${BgWave})`:'linear-gradient(to bottom, #99bbff, #e6eeff)'  }}
         >
           <div className="flex flex-col items-center lg:flex-row lg:justify-center text-[38px] gap-28 mx-20 my-20">
             <p className="mt-20 lg:w-[25%]">Join a Community of millions.</p>
