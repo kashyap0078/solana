@@ -164,9 +164,9 @@ const Home = () => {
               : "linear-gradient(to bottom, #99bbff, #e6eeff)",
           }}
         >
-          <h1 className="mt-20 text-[48px] mx-20">About us</h1>
           <div className="flex flex-col  lg:flex-row lg:justify-center items-center text-[32px] gap-28 m-5 lg:m-10">
             <div className="flex flex-col items-start lg:w-[50%] mx-10 space-y-4 lg:w-1/2 "> 
+          <h1 className="mt-20 text-[48px] ">About us</h1>
               <h2 className="mt-20 ">About Finixia Dedecons.</h2>
               <p className="text-[17px]  text-black  dark:text-[#C4C4C4]">
                 Finixia Dedecons is a dynamic and innovative technology company
