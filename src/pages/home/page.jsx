@@ -7,7 +7,7 @@ import Jump from "../../assets/icons/jump.svg";
 import Lalaplaza from "../../assets/icons/lalaplaza.svg";
 import MagicEden from "../../assets/icons/magicEden.svg";
 import BgWave from "../../assets/images/backgroundwave.png";
-import Aboutus from "../../assets/images/aboutus.jpg";
+import Aboutus from "../../assets/images/Man2.png";
 import AnyBodies from "../../assets/images/anybodies.png";
 import AnybodyIcon from "../../assets/icons/anybody.svg";
 import Clay from "../../assets/icons/clay.png";
@@ -165,8 +165,8 @@ const Home = () => {
           }}
         >
           <h1 className="mt-20 text-[48px] mx-20">About us</h1>
-          <div className="flex flex-col  lg:flex-row lg:justify-center text-[32px] gap-28 m-5 lg:m-10">
-            <div className="flex flex-col items-start lg:w-[80%] mx-10 space-y-4 ">
+          <div className="flex flex-col  lg:flex-row lg:justify-center items-center text-[32px] gap-28 m-5 lg:m-10">
+            <div className="flex flex-col items-start lg:w-[50%] mx-10 space-y-4 lg:w-1/2 "> 
               <h2 className="mt-20 ">About Finixia Dedecons.</h2>
               <p className="text-[17px]  text-black  dark:text-[#C4C4C4]">
                 Finixia Dedecons is a dynamic and innovative technology company
@@ -184,11 +184,14 @@ const Home = () => {
                 KNOW MORE
               </button>
             </div>
-            <img
-              src={Aboutus}
-              alt=""
-              className=" lg:w-1/2 border-t border-t-[10px] border-l border-l-[10px] rounded border-t-[gray] border-l-[gray]  "
-            />
+            <motion.img
+      src={Aboutus}
+      alt=""
+      className="w-[400px] h-[700px]"
+      initial={{ x: '100vw' }}
+      animate={{ x: 0 }}
+      transition={{ type: 'spring', stiffness: 10 }}
+    />
           </div>
 
           <div className="flex flex-col items-start  py-10  mx-20 space-y-4">
@@ -303,9 +306,9 @@ const Home = () => {
             It's time to join the thousands of creators, artists, and developers
             using Solana.
           </h2> */}
-          <button className="px-6 py-2 text-[white] dark:text-[black] bg-gradient-to-r from-[#8C01FA] to-black rounded-full my-4 ">
+          {/* <button className="px-6 py-2 text-[white] dark:text-[black] bg-gradient-to-r from-[#8C01FA] to-black rounded-full my-4 max-w-[300px]">
             START BUILDING
-          </button>
+          </button> */}
         {/* </div> */}
       </section>
     </>
