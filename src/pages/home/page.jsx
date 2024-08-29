@@ -31,10 +31,20 @@ import WebDesign from "../../assets/icons/webDesigner.svg";
 import IotDev from "../../assets/icons/creativeServices.svg";
 import DigitalMarket from "../../assets/icons/digitalMarketing.svg";
 import { useDarkMode } from "../../context/Darkmode";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import Testimonial from "../../components/testimonial";
+import Planet from "../../assets/images/Planet-1.png";
+import { useEffect } from "react";
+import ReviewCard from "../../components/ratingCard";
+import taos from 'taos';
+import 'taos/dist/taos'
+
 const Home = () => {
   const { isNightMode } = useDarkMode();
+  const text = "BEST IT COMPNAY IN INDIA".split(" ");
+  // useEffect(()=> {
+  //   taos.init();
+  // }, []);
   const ourService = [
     {
       icon: AppDevelopment,
@@ -94,87 +104,104 @@ const Home = () => {
   return (
     <>
       <section>
-        <div className={`relative h-full flex justify-center text-center `}>
+        <div className="relative h-full flex justify-center text-center overflow-x-hidden ">
           <div
-            className={`absolute top-0 h-full w-full bg-no-repeat bg-cover`}
+            className="absolute top-0 h-full w-full bg-no-repeat bg-cover"
             style={{
               backgroundImage: isNightMode ? `url(${HomePage})` : "none",
             }}
-          >
-            {" "}
-          </div>
+          ></div>
 
-          <div className=" flex flex-col items-center lg:flex-row lg:justify-center mx-auto">
-            <div className="relative z-10 max-w-full justify-center flex flex-col mx-10  mb-28 mt-10 lg:my-28 order-2 lg:order-1">
-              <h1 className="text-[38px] sm:text-[45px] md:text-[60px] lg:text-[70px] my-0  ">
-                Innovate. Create. Transform
+          <div className="flex flex-col items-center lg:flex-row lg:justify-center mx-auto overflow-x-hidden">
+            <div className="relative z-10 max-w-full justify-center flex flex-col mx-10 mb-28 mt-10 lg:my-28 order-2 lg:order-1">
+              <h1 className="text-[38px] sm:text-[45px] md:text-[60px] lg:text-[70px] my-0 leading-none">
+                Innovate. Create. Transform.
               </h1>
+              <div className="text-[38px]">
+                {text.map((el, i) => (
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0, 1, 0] }}
+                    transition={{
+                      duration: 1,
+                      delay: i / 10,
+                      repeat: Infinity,
+                      repeatDelay: 2,
+                    }}
+                    key={i}
+                  >
+                    {el}{" "}
+                  </motion.span>
+                ))}
+              </div>
               <p className="mt-4 sm:mx-24 text-[16px] sm:text-[18px]">
                 Your Partner in Web, App, Software, IoT Development & Digital
                 Marketing
               </p>
-              <div className="mt-6 gap-5 flex flex-col  sm:flex-row justify-center">
-                <button className="px-6 py-2 text-[white] dark:text-[black] bg-gradient-to-r from-[#8C01FA] to-black rounded-full ">
+              <div className="mt-6 gap-5 flex flex-col sm:flex-row justify-center">
+                <button className="px-6 py-2 text-[white] dark:text-[black] bg-gradient-to-r from-[#8C01FA] to-black rounded-full">
                   LEARN MORE
                 </button>
                 <button className="px-6 py-2 border dark:border-white rounded-full hover:bg-white hover:text-black">
-                  BOOK A APPOINMENT
+                  BOOK AN APPOINTMENT
                 </button>
               </div>
             </div>
-            <div className="relative z-10 mx-10 order-1 lg:order-2">
-              <video
-                className="w-full lg:w-[600px]"
-                autoPlay
-                muted
-                loop
-                playsInline
+            <div className="relative z-10 mx-10 order-1 lg:order-2 overflow overflow-x-hidden">
+              <motion.div
+              // ref={ref}
+              // initial={{ x: '100%' }}
+              // whileInView={{ x: 0 }}
+              // transition={{ duration: .5, ease: 'easeInOut' }}
               >
-                <source src={Welcome} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+                <img
+                  src={Planet}
+                  alt=""
+                  className="w-[1000px] opacity-50 overflow-x-hidden"
+                />
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
       <section>
-        <div className="relative z-10 flex flex-col items-center  mt-10">
+        <div className="relative z-10 flex flex-col items-center mt-10">
           <div>
-            <p className="text-[#618ADC] text-[20px] mx-5  ">
+            <p className="text-[#618ADC] text-[20px] mx-5">
               TRUSTED FROM BRANDS GLOBALLY
             </p>
           </div>
-          <div className="flex flex-wrap justify-center my-5 gap-6  bg-[#e5e7eb] dark:bg-[black] ">
-            <img src={Brave} />
-            <img src={Circle} />
-            <img src={Discord} />
-            <img src={Google} />
-            <img src={Jump} />
-            <img src={Lalaplaza} />
-            <img src={MagicEden} />
+          <div className="flex flex-wrap justify-center my-10 gap-6 bg-[#e5e7eb] dark:bg-[black]">
+            <img src={Brave} alt="Brave" />
+            <img src={Circle} alt="Circle" />
+            <img src={Discord} alt="Discord" />
+            <img src={Google} alt="Google" />
+            <img src={Jump} alt="Jump" />
+            <img src={Lalaplaza} alt="Lalaplaza" />
+            <img src={MagicEden} alt="MagicEden" />
           </div>
         </div>
       </section>
-      <section className="">
+      <section>
         <div
-          className="min-h-screen w-full bg-cover bg-center"
+          className="min-h-screen w-full bg-cover bg-center py-10"
           style={{
             backgroundImage: isNightMode
               ? `url(${BgWave})`
               : "linear-gradient(to bottom, #99bbff, #e6eeff)",
           }}
         >
-          <div className="flex flex-col  lg:flex-row lg:justify-center items-center text-[32px] gap-28 m-5 lg:m-10">
-            <div className="flex flex-col items-start lg:w-[50%] mx-10 space-y-4 lg:w-1/2 "> 
-          <h1 className="mt-20 text-[48px] ">About us</h1>
-              <h2 className="mt-20 ">About Finixia Dedecons.</h2>
-              <p className="text-[17px]  text-black  dark:text-[#C4C4C4]">
+          <div className="flex flex-col lg:flex-row lg:justify-center items-center text-[32px] gap-28 m-5 lg:m-10">
+            <div className="flex flex-col items-start lg:w-[50%] mx-10 space-y-4 lg:w-1/2">
+              <h1 className="mt-20 text-[48px]">About us</h1>
+              <h2 className="mt-20">About Finixia Dedecons.</h2>
+              <p className="text-[17px] text-black dark:text-[#C4C4C4]">
                 Finixia Dedecons is a dynamic and innovative technology company
                 based in Assam, India. We specialize in providing a
                 comprehensive suite of IT and Marketing solutions to businesses
                 of all sizes.
               </p>
-              <p className="text-[17px]  text-black  dark:text-[#C4C4C4]">
+              <p className="text-[17px] text-black dark:text-[#C4C4C4]">
                 Being named Northeast India's best tech startup underscores your
                 company’s exceptional innovation and significant growth. It
                 highlights your standout impact in the region and reflects the
@@ -184,14 +211,14 @@ const Home = () => {
                 KNOW MORE
               </button>
             </div>
-            <motion.img
-      src={Aboutus}
-      alt=""
-      className="w-[400px] h-[700px]"
-      initial={{ x: '100vw' }}
-      animate={{ x: 0 }}
-      transition={{ type: 'spring', stiffness: 10 }}
-    />
+            <div className=" relative delay-[300ms] duration-[600ms] taos:translate-x-[200px] taos:opacity-0"
+                data-taos-offset="400">
+              <img
+                src={Aboutus}
+                alt="About Us"
+                className="w-[400px] h-[700px] "
+              />
+            </div>
           </div>
 
           <div className="flex flex-col items-start  py-10  mx-20 space-y-4">
@@ -260,7 +287,7 @@ const Home = () => {
             ))}
           </div>
           <button className="px-6 py-2 text-[16px] border border-black dark:border-white rounded-full hover:bg-white hover:text-black w-[200px]">
-             MORE PROJECTS
+            MORE PROJECTS
           </button>
         </div>
       </section>
@@ -273,13 +300,16 @@ const Home = () => {
           />
         </div>
         <div className="flex flex-col mx-5 px-20 my-20">
-          <h1 className=" text-[32px] sm:text-[40px]  my-5 z-10 ">Testomonials</h1>
+          <h1 className=" text-[32px] sm:text-[40px]  my-5 z-10 ">
+            Testomonials
+          </h1>
           <h2 className="text-[17px] text-black  dark:text-[#C4C4C4] z-10 ">
-            what our clients say !  You still hesitate about working with Us ? Check what They say about Us
+            what our clients say ! You still hesitate about working with Us ?
+            Check what They say about Us
           </h2>
         </div>
-        <div>
-          <Testimonial/>
+        <div className="mx-20">
+          <ReviewCard />
         </div>
         {/* <div className="flex  gap-3 w-full relative z-10 ">
           <div className=" flex flex-col gap-3">
@@ -306,7 +336,7 @@ const Home = () => {
             It's time to join the thousands of creators, artists, and developers
             using Solana.
           </h2> */}
-          {/* <button className="px-6 py-2 text-[white] dark:text-[black] bg-gradient-to-r from-[#8C01FA] to-black rounded-full my-4 max-w-[300px]">
+        {/* <button className="px-6 py-2 text-[white] dark:text-[black] bg-gradient-to-r from-[#8C01FA] to-black rounded-full my-4 max-w-[300px]">
             START BUILDING
           </button> */}
         {/* </div> */}
